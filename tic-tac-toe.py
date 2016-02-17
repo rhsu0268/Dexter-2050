@@ -75,17 +75,23 @@ def Y_turn():
     print("It is Y's turn.")
 
 # check that the game is not yet won
-def won(gameboard, row):
+def won(gameboard):
+    i = 0
 
-    for i in row:
+    for i in range(3):
         # check rows
-        check_row(row)
+        if (check_row(i)):
+            return True
 
 def check_row(row):
+        # make sure that the blank spaces in the beginning does not result in a false win
+        if (gameboard[row][0] == '-' and gameboard[row][1] == '-' and gameboard[row][2] == '-'):
+            return False
         if (gameboard[row][0] == gameboard[row][1] and gameboard[row][1] == gameboard[row][2]):
-            return 1
+            return True
         else:
-            return 0
+            print("Not won yet!")
+            return False
 
 def play_game():
     welcome()
@@ -95,10 +101,14 @@ def play_game():
         print_board(gameboard)
         player = 'X'
         move(gameboard, player)
+        if (won(gameboard)):
+            print ("Congratulations! X wins the game!")
+            return;
         print_board(gameboard)
         Y_turn()
         player = 'O'
         move(gameboard, player)
+        print(won(gameboard))
         print_board(gameboard)
 
 play_game()
