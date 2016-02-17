@@ -83,6 +83,11 @@ def won(gameboard):
         if (check_row(i)):
             return True
 
+    for j in range(3):
+        # check rows
+        if (check_col(j)):
+            return True
+
 def check_row(row):
         # make sure that the blank spaces in the beginning does not result in a false win
         if (gameboard[row][0] == '-' and gameboard[row][1] == '-' and gameboard[row][2] == '-'):
@@ -92,6 +97,17 @@ def check_row(row):
         else:
             print("Not won yet!")
             return False
+
+def check_col(col):
+        # make sure that the blank spaces in the beginning does not result in a false win
+        if (gameboard[0][col] == '-' and gameboard[1][col] == '-' and gameboard[2][col] == '-'):
+            return False
+        if (gameboard[0][col] == gameboard[1][col] and gameboard[1][col] == gameboard[2][col]):
+            return True
+        else:
+            print("Not won yet!")
+            return False
+
 
 def play_game():
     welcome()
