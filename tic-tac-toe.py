@@ -71,8 +71,8 @@ def move(gameboard, player):
 def X_turn():
     print("It is X's turn.")
 
-def Y_turn():
-    print("It is Y's turn.")
+def O_turn():
+    print("It is O's turn.")
 
 # check that the game is not yet won
 def won(gameboard):
@@ -87,26 +87,39 @@ def won(gameboard):
         # check rows
         if (check_col(j)):
             return True
+    if (check_diagonal()):
+        return True
 
 def check_row(row):
-        # make sure that the blank spaces in the beginning does not result in a false win
-        if (gameboard[row][0] == '-' and gameboard[row][1] == '-' and gameboard[row][2] == '-'):
-            return False
-        if (gameboard[row][0] == gameboard[row][1] and gameboard[row][1] == gameboard[row][2]):
-            return True
-        else:
-            print("Not won yet!")
-            return False
+    # make sure that the blank spaces in the beginning does not result in a false win
+    if (gameboard[row][0] == '-' and gameboard[row][1] == '-' and gameboard[row][2] == '-'):
+        return False
+    if (gameboard[row][0] == gameboard[row][1] and gameboard[row][1] == gameboard[row][2]):
+        return True
+    else:
+        #print("Not won yet!")
+        return False
 
 def check_col(col):
-        # make sure that the blank spaces in the beginning does not result in a false win
-        if (gameboard[0][col] == '-' and gameboard[1][col] == '-' and gameboard[2][col] == '-'):
-            return False
-        if (gameboard[0][col] == gameboard[1][col] and gameboard[1][col] == gameboard[2][col]):
-            return True
-        else:
-            print("Not won yet!")
-            return False
+    # make sure that the blank spaces in the beginning does not result in a false win
+    if (gameboard[0][col] == '-' and gameboard[1][col] == '-' and gameboard[2][col] == '-'):
+        return False
+    if (gameboard[0][col] == gameboard[1][col] and gameboard[1][col] == gameboard[2][col]):
+        return True
+    else:
+        #print("Not won yet!")
+        return False
+
+def check_diagonal():
+    if (gameboard[0][0] == '-' and gameboard[1][1] == '-' and gameboard[2][2] == '-'):
+        return False
+    if (gameboard[0][0] == gameboard[1][1] and gameboard[1][1] == gameboard[2][2]):
+        return True
+    if (gameboard[0][2] == '-' and gameboard[1][1] == '-' and gameboard[2][0] == '-'):
+        return False
+    if (gameboard[0][2] == gameboard[1][1] and gameboard[1][1] == gameboard[2][0]):
+        return True
+    return False
 
 
 def play_game():
@@ -121,7 +134,7 @@ def play_game():
             print ("Congratulations! X wins the game!")
             return;
         print_board(gameboard)
-        Y_turn()
+        O_turn()
         player = 'O'
         move(gameboard, player)
         if (won(gameboard)):
