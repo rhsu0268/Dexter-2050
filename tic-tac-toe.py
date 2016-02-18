@@ -45,13 +45,20 @@ def move(gameboard, player):
 
     #gameboard = [[0 for x in range(3)] for x in range(3)]
     #print(gameboard)
+    while True:
+        try:
+            row = int(input("Input row: "))
+            if (row < 0 or row > 2):
+                print("Invalid value!")
+                continue
+            break
+        except ValueError:
+            print("Oops! That was not a valid index. Try again...")
+            continue
 
-    row = int(input("Input row: "))
-    if (row < 0 or row > 3):
-        print("Invalid value!")
-        return
+
     col = int(input("Input column: "))
-    if (col < 0 or col > 3):
+    if (col < 0 or col > 2):
         print("Invalid value!")
         return
 
