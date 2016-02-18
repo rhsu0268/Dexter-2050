@@ -124,6 +124,9 @@ def play_game():
         Y_turn()
         player = 'O'
         move(gameboard, player)
+        if (won(gameboard)):
+            print ("Congratulations! O wins the game!")
+            return;
         print(won(gameboard))
         print_board(gameboard)
 
