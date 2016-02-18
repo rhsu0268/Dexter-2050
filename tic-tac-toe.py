@@ -57,22 +57,60 @@ def move(gameboard, player):
             continue
 
 
-    col = int(input("Input column: "))
-    if (col < 0 or col > 2):
-        print("Invalid value!")
-        return
+    while True:
+        try:
+            col = int(input("Input col: "))
+            if (col < 0 or col > 2):
+                print("Invalid value!")
+                continue
+            break
+        except ValueError:
+            print("Oops! That was not a valid index. Try again...")
+            continue
+
 
 
     # validate user input
     #gameboard[2][2] = 'X'
 
-    # check to make sure the move is valid
     if (gameboard[row][col] == '-'):
         gameboard[row][col] = player
     else:
-        print("That is an invalid move!")
+        # check to make sure the move is valid
+        print("Sorry, your choice is already occupied. Choose another!")
+        while True:
+            result = check_user_input()
+            if (gameboard[result[0]][result[1]] == '-'):
+                gameboard[result[0]][result[1]] = player
+                break
+            print("Sorry, your choice is already occupied. Choose another!")
 
     print(gameboard[row][col])
+
+def check_user_input():
+    while True:
+        try:
+            row = int(input("Input row: "))
+            if (row < 0 or row > 2):
+                print("Invalid value!")
+                continue
+            break
+        except ValueError:
+            print("Oops! That was not a valid index. Try again...")
+            continue
+
+
+    while True:
+        try:
+            col = int(input("Input col: "))
+            if (col < 0 or col > 2):
+                print("Invalid value!")
+                continue
+            break
+        except ValueError:
+            print("Oops! That was not a valid index. Try again...")
+            continue
+    return row, col
 
 
 def X_turn():
