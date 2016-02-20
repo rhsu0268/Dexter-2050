@@ -166,6 +166,12 @@ def check_diagonal():
         return True
     return False
 
+def check_draw():
+    for i in range(3):
+        for j in range(3):
+            if (gameboard[i][j] != '-'):
+                return True
+
 
 def play_game():
     welcome()
