@@ -11,6 +11,9 @@
 gameboard = [['-' for x in range(3)] for x in range(3)]
 
 
+# Fn: This function initalizes the gameboard
+# Parameters: None
+# Return: None
 def init_board():
 
     # create a list of three lists
@@ -24,11 +27,16 @@ def init_board():
     print(board)
 
 
-# welcome the user
+# Fn: This function welcomes the user
+# Parameters: None
+# Return None
 def welcome():
     print("Welcome to Tic-Tac-Toe")
 
 
+# Fn: This function prints the gameboard
+# Parameters: gameboard
+# Return: None
 def print_board(gameboard):
 
     for i in range(3):
@@ -37,10 +45,11 @@ def print_board(gameboard):
             print(gameboard[i][j] + '|', end="")
         print("")
 
-#print_board()
 
 
-# allow the user to make a move
+# Fn: This function allows a player to make a move
+# Parameters: gameboard, player (X or O)
+# Return: None
 def move(gameboard, player):
 
     #gameboard = [[0 for x in range(3)] for x in range(3)]
@@ -71,8 +80,6 @@ def move(gameboard, player):
 
 
     # validate user input
-    #gameboard[2][2] = 'X'
-
     if (gameboard[row][col] == '-'):
         gameboard[row][col] = player
     else:
