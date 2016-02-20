@@ -54,34 +54,35 @@ def move(gameboard, player):
 
     #gameboard = [[0 for x in range(3)] for x in range(3)]
     #print(gameboard)
-    while True:
-        try:
-            row = int(input("Input row: "))
-            if (row < 0 or row > 2):
-                print("Invalid value!")
-                continue
-            break
-        except ValueError:
-            print("Oops! That was not a valid index. Try again...")
-            continue
+    # while True:
+    #     try:
+    #         row = int(input("Input row: "))
+    #         if (row < 0 or row > 2):
+    #             print("Invalid value!")
+    #             continue
+    #         break
+    #     except ValueError:
+    #         print("Oops! That was not a valid index. Try again...")
+    #         continue
 
 
-    while True:
-        try:
-            col = int(input("Input col: "))
-            if (col < 0 or col > 2):
-                print("Invalid value!")
-                continue
-            break
-        except ValueError:
-            print("Oops! That was not a valid index. Try again...")
-            continue
+    # while True:
+    #     try:
+    #         col = int(input("Input col: "))
+    #         if (col < 0 or col > 2):
+    #             print("Invalid value!")
+    #             continue
+    #         break
+    #     except ValueError:
+    #         print("Oops! That was not a valid index. Try again...")
+    #         continue
+    move = check_user_input()
 
 
 
     # validate user input
-    if (gameboard[row][col] == '-'):
-        gameboard[row][col] = player
+    if (gameboard[move[0]][move[1]] == '-'):
+        gameboard[move[0]][move[1]] = player
     else:
         # check to make sure the move is valid
         print("Sorry, your choice is already occupied. Choose another!")
