@@ -134,9 +134,7 @@ def won(gameboard):
             return True
     if (check_diagonal()):
         return True
-    if (check_draw()):
-        print("Great job to both! The game ends in a draw!")
-        return 
+    return False
 
 def check_row(row):
     # make sure that the blank spaces in the beginning does not result in a false win
@@ -172,9 +170,9 @@ def check_diagonal():
 def check_draw():
     for i in range(3):
         for j in range(3):
-            if (gameboard[i][j] != '-'):
-                return True
-    return False
+            if (gameboard[i][j] == '-'):
+                return False
+    return True
 
 
 def play_game():
@@ -187,14 +185,20 @@ def play_game():
         move(gameboard, player)
         if (won(gameboard)):
             print ("Congratulations! X wins the game!")
-            return;
+            return
+        if (check_draw()):
+            print("Great job to both! The game ends in a draw!")
+            return
         print_board(gameboard)
         O_turn()
         player = 'O'
         move(gameboard, player)
         if (won(gameboard)):
             print ("Congratulations! O wins the game!")
-            return;
+            return
+        if (check_draw()):
+            print("Great job to both! The game ends in a draw!")
+            return
         print(won(gameboard))
         print_board(gameboard)
 
