@@ -94,6 +94,9 @@ def move(gameboard, player):
 
     #print(gameboard[row][col])
 
+# Fn: This function checks that the user is making a valid move
+# Parameters: None
+# Return: Tuple containing row and col of the user's move
 def check_user_input():
     while True:
         try:
@@ -120,13 +123,21 @@ def check_user_input():
     return row, col
 
 
+# Fn: This function switches the turn to X
+# Parameters: None
+# Return: None
 def X_turn():
     print("It is X's turn.")
 
+# Fn: This function switches the turn to O
+# Parameters: None
+# Return: None
 def O_turn():
     print("It is O's turn.")
 
-# check that the game is not yet won
+# Fn: This function checks that the game has been won
+# Parameters: gameboard
+# Return: Boolean (True or False)
 def won(gameboard):
     i = 0
 
