@@ -92,7 +92,7 @@ def move(gameboard, player):
                 break
             print("Sorry, your choice is already occupied. Choose another!")
 
-    print(gameboard[row][col])
+    #print(gameboard[row][col])
 
 def check_user_input():
     while True:
