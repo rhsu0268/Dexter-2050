@@ -9,6 +9,7 @@
 
 # create a global variable for gameboard
 gameboard = [['-' for x in range(3)] for x in range(3)]
+MAX_DEPTH = 5
 
 
 # Fn: This function initalizes the gameboard
@@ -52,33 +53,7 @@ def print_board(gameboard):
 # Return: None
 def move(gameboard, player):
 
-    #gameboard = [[0 for x in range(3)] for x in range(3)]
-    #print(gameboard)
-    # while True:
-    #     try:
-    #         row = int(input("Input row: "))
-    #         if (row < 0 or row > 2):
-    #             print("Invalid value!")
-    #             continue
-    #         break
-    #     except ValueError:
-    #         print("Oops! That was not a valid index. Try again...")
-    #         continue
-
-
-    # while True:
-    #     try:
-    #         col = int(input("Input col: "))
-    #         if (col < 0 or col > 2):
-    #             print("Invalid value!")
-    #             continue
-    #         break
-    #     except ValueError:
-    #         print("Oops! That was not a valid index. Try again...")
-    #         continue
     move = check_user_input()
-
-
 
     # validate user input
     if (gameboard[move[0]][move[1]] == '-'):
@@ -192,6 +167,17 @@ def check_draw():
             if (gameboard[i][j] == '-'):
                 return False
     return True
+
+
+def minimax(gameboard, player, my_move, depth):
+
+    if (depth > MAX_DEPTH):
+        return 0
+
+    # see if someone has won
+    winner = won(gameboard)
+    if (winner):
+        
 
 
 def play_game():
