@@ -176,8 +176,10 @@ def minimax(gameboard, player, my_move, depth):
 
     # see if someone has won
     winner = won(gameboard)
+    print("winner")
     if (winner):
-        
+        return winner
+
 
 
 def play_game():
